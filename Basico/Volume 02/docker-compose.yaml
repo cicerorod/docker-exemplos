@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - type: volume
+        source: mydata2
+        target: /usr/share/nginx/html
+
+  web2:
+    image: nginx:alpine
+    volumes:
+      - type: volume
+        source: mydata
+        target: /app
+        read_only: true
+
+volumes:
+  mydata2:
